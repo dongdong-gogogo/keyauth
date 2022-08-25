@@ -19,6 +19,10 @@ const (
 	AppName = "user"
 )
 
+const (
+	DefaultDomain = "default"
+)
+
 var (
 	validate = validator.New()
 )
@@ -32,8 +36,8 @@ func NewUser(req *CreateUserRequest) *User {
 	}
 }
 
-func (u *User) CheckPassword(password string) {
-	utils.CheckPasswordHash(password, u.Data.Password)
+func (u *User) CheckPassword(password string) bool {
+	return utils.CheckPasswordHash(password, u.Data.Password)
 }
 
 func NewUserSet() *UserSet {
@@ -55,7 +59,7 @@ func NewDefaultUser() *User {
 
 func NewCreateUserRequest() *CreateUserRequest {
 	return &CreateUserRequest{
-		Domain: "default",
+		Domain: DefaultDomain,
 	}
 }
 

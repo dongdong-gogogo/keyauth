@@ -14,16 +14,26 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func (s *service) get(ctx context.Context, id string) (*user.User, error) {
-	filter := bson.M{"_id": id}
+func (s *service) get(ctx context.Context, req *user.DescribeUserRequest) (*user.User, error) {
+
+	filter := bson.M{}
+	switch req.DescribeBy {
+	case user.DescribeBy_USER_ID:
+		filter["_id"] = req.UserId
+	case user.DescribeBy_USER_NAME:
+		filter["data.domain"] = req.Domain
+		filter["data.name"] = req.UserName
+	default:
+		return nil, fmt.Errorf("ubknow describe_by %s", req.DescribeBy)
+	}
 
 	ins := user.NewDefaultUser()
 	if err := s.col.FindOne(ctx, filter).Decode(ins); err != nil {
 		if err == mongo.ErrNoDocuments {
-			return nil, exception.NewNotFound("user %s not found", id)
+			return nil, exception.NewNotFound("user %s not found", req)
 		}
 
-		return nil, exception.NewInternalServerError("find user %s error, %s", id, err)
+		return nil, exception.NewInternalServerError("find user %s error, %s", req, err)
 	}
 
 	return ins, nil

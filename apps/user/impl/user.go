@@ -30,7 +30,7 @@ func (s *service) QueryUser(ctx context.Context, req *user.QueryUserRequest) (*u
 	return s.query(ctx, query)
 }
 func (s *service) DescribeUser(ctx context.Context, req *user.DescribeUserRequest) (*user.User, error) {
-	return s.get(ctx, req.UserId)
+	return s.get(ctx, req)
 }
 func (s *service) UpdateUser(ctx context.Context, req *user.UpdateUserRequest) (*user.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
