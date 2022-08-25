@@ -24,11 +24,12 @@ type service struct {
 }
 
 func (s *service) Config() error {
-
+	// 依赖MongoDB的DB对象
 	db, err := conf.C().Mongo.GetDB()
 	if err != nil {
 		return err
 	}
+	// 获取一个Collection对象
 	s.col = db.Collection(s.Name())
 
 	s.log = zap.L().Named(s.Name())
