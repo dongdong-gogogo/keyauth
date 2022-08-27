@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"time"
 
+	"gitee.com/dongdong-0421/keyauth/utils"
+
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
@@ -16,6 +18,10 @@ import (
 
 var (
 	AUTH_ERROR = "user or password not correct"
+)
+
+var (
+	DefaultTokenDuration = 10 * time.Minute
 )
 
 func (s *service) IssueToken(ctx context.Context, req *token.IssueTokenRequest) (*token.Token, error) {
@@ -43,7 +49,14 @@ func (s *service) IssueToken(ctx context.Context, req *token.IssueTokenRequest) 
 		}
 
 		// 3、颁发一个token
-		tk := token.NewToken(req, 10*time.Minute)
+		tk := token.NewToken(req, DefaultTokenDuration)
+
+		// 4、脱敏
+		tk.Data.Password = ""
+		// 5、入库
+		if err := s.save(ctx, tk); err != nil {
+			return nil, err
+		}
 		return tk, err
 
 	default:
@@ -52,16 +65,51 @@ func (s *service) IssueToken(ctx context.Context, req *token.IssueTokenRequest) 
 	return nil, nil
 }
 
-func (i *service) RevolkToken(ctx context.Context, req *token.RevolkTokenRequest) (*token.Token, error) {
+func (s *service) RevolkToken(ctx context.Context, req *token.RevolkTokenRequest) (*token.Token, error) {
+	// 1、获取AccessToken
 
-	return nil, nil
+	tk, err := s.get(ctx, req.AccessToken)
+	if err != nil {
+		return nil, err
+	}
+	// 2、检查RefreshToken是否匹配
+	if tk.RefreshToken != req.RefreshToken {
+		return nil, exception.NewBadRequest("refresh token not conrrect")
+	}
+	// 3、删除
+	if err := s.delete(ctx, tk); err != nil {
+		return nil, err
+	}
+	return tk, nil
 }
 
-func (i *service) ValidateToken(ctx context.Context, req *token.ValidateTokenRequest) (*token.Token, error) {
-
-	return nil, nil
+func (s *service) ValidateToken(ctx context.Context, req *token.ValidateTokenRequest) (*token.Token, error) {
+	// 1、获取AccessToken
+	tk, err := s.get(ctx, req.AccessToken)
+	if err != nil {
+		return nil, err
+	}
+	// 2、校验 Token的合法性
+	if tk.Validate(); err != nil {
+		// 2.1 如果Access Token过期
+		if utils.IsAccessTokenExpiredError(err) {
+			if tk.IsRefreshTokenExpired() {
+				return nil, exception.NewRefreshTokenExpired("refresh token expired")
+			}
+			// 2.2 如果Refresh 没过期，延长时间
+			//类似执行一个Update，Update Expired 时间
+			tk.Extend(DefaultTokenDuration)
+			if err := s.update(ctx, tk); err != nil {
+				return nil, err
+			}
+			// 返回续约后的token
+			return tk, err
+		}
+		return nil, err
+	}
+	return tk, nil
 }
 
-func (i *service) QueryToken(ctx context.Context, req *token.QueryTokenRequest) (*token.TokenSet, error) {
+func (s *service) QueryToken(ctx context.Context, req *token.QueryTokenRequest) (*token.TokenSet, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueryToken not implemented")
 }

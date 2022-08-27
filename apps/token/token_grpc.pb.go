@@ -8,6 +8,7 @@ package token
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -82,9 +83,9 @@ func (c *serviceClient) QueryToken(ctx context.Context, in *QueryTokenRequest, o
 type ServiceServer interface {
 	// 颁发Token(Login)
 	IssueToken(context.Context, *IssueTokenRequest) (*Token, error)
+	// 校验Token的接口(内部服务使用)
 	// 撤销Token(Logout)
 	RevolkToken(context.Context, *RevolkTokenRequest) (*Token, error)
-	// 校验Token的接口(内部服务使用)
 	ValidateToken(context.Context, *ValidateTokenRequest) (*Token, error)
 	// 查询Token, 查询用于REST ful API访问颁发出去的Token
 	QueryToken(context.Context, *QueryTokenRequest) (*TokenSet, error)
