@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"gitee.com/dongdong-0421/keyauth/apps/book"
+	"gitee.com/dongdong-0421/keyauth/apps/token"
 	"github.com/infraboard/mcenter/client/rpc"
 	"github.com/infraboard/mcenter/client/rpc/auth"
 	"github.com/infraboard/mcenter/client/rpc/resolver"
@@ -59,7 +59,7 @@ type ClientSet struct {
 	log  logger.Logger
 }
 
-// Book服务的SDK
-func (c *ClientSet) Book() book.ServiceClient {
-	return book.NewServiceClient(c.conn)
+// Token服务的SDK
+func (c *ClientSet) Token() token.ServiceClient {
+	return token.NewServiceClient(c.conn)
 }
