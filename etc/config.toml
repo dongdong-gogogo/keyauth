@@ -11,15 +11,16 @@ host = "127.0.0.1"
 port = "18050"
 
 
-
-
-
-
 [mongodb]
 endpoints = ["127.0.0.1:27017"]
 username = "keyauth"
 password = "123456"
 database = "keyauth"
+
+[mcenter]
+address = "127.0.0.1:18010"
+client_id = "9p9SUB2sXz4g0gSQ3MUULBcU"
+client_secret = "pldmpuwcJgxMja35o8zLbjuP1dzK2908"
 
 [log]
 level = "debug"

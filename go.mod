@@ -11,7 +11,7 @@ require (
 	github.com/go-openapi/spec v0.20.7
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/imdario/mergo v0.3.13
-	github.com/infraboard/keyauth v0.8.1
+	github.com/infraboard/mcenter v0.0.5
 	github.com/infraboard/mcube v1.9.0
 	github.com/rs/xid v1.4.0
 	github.com/spf13/cobra v1.5.0
@@ -44,7 +44,6 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
-	github.com/mssola/user_agent v0.5.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
