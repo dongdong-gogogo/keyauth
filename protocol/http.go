@@ -34,6 +34,8 @@ func NewHTTPService() *HTTPService {
 		Container:      r}
 	r.Filter(cors.Filter)
 
+	// 加载中间件
+
 	server := &http.Server{
 		ReadHeaderTimeout: 60 * time.Second,
 		ReadTimeout:       60 * time.Second,
