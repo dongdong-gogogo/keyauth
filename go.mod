@@ -3,7 +3,6 @@ module github.com/dongdong-gogogo/keyauth
 go 1.17
 
 require (
-	gitee.com/dongdong-0421/keyauth v0.0.1
 	github.com/BurntSushi/toml v1.2.0
 	github.com/caarlos0/env/v6 v6.10.0
 	github.com/emicklei/go-restful-openapi v1.4.1
