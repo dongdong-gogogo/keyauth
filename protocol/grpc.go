@@ -80,7 +80,7 @@ func (s *GRPCService) Start() {
 	}
 
 	// 1. 理论上 我们需要等待GRPC服务启动成功后，才注册
-	// 但是 GRPC server 没有提供成功时的回调
+	// 但是 GRPC auther.go 没有提供成功时的回调
 
 	// 假设GPRC Server 1秒能正常启动
 	time.AfterFunc(1*time.Second, s.registry)

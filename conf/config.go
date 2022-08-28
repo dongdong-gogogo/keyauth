@@ -194,7 +194,7 @@ func (m *mongodb) getClient() (*mongo.Client, error) {
 
 	// 保证MongoDB服务是在线
 	if err = client.Ping(context.TODO(), nil); err != nil {
-		return nil, fmt.Errorf("ping mongodb server(%s) error, %s", m.Endpoints, err)
+		return nil, fmt.Errorf("ping mongodb auther.go(%s) error, %s", m.Endpoints, err)
 	}
 
 	return client, nil

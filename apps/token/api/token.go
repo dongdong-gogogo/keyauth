@@ -1,7 +1,7 @@
 package api
 
 import (
-	"strings"
+	"gitee.com/dongdong-0421/keyauth/utils"
 
 	"github.com/emicklei/go-restful/v3"
 	"github.com/infraboard/mcube/http/response"
@@ -28,14 +28,7 @@ func (h *handler) IssueToken(r *restful.Request, w *restful.Response) {
 }
 
 func (h *handler) ValidateToken(r *restful.Request, w *restful.Response) {
-	accessToken := ""
-	auth := r.HeaderParameter("Authorization")
-	al := strings.Split(auth, " ")
-	if len(al) > 1 {
-		accessToken = al[1]
-	} else {
-		accessToken = auth
-	}
+	accessToken := utils.GetToken(r.Request)
 
 	req := token.NewValidateTokenRequest(accessToken)
 	ins, err := h.service.ValidateToken(r.Request.Context(), req)

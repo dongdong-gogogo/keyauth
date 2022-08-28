@@ -77,7 +77,7 @@ func (c *serviceClient) QueryToken(ctx context.Context, in *QueryTokenRequest, o
 	return out, nil
 }
 
-// ServiceServer is the server API for Service service.
+// ServiceServer is the auther.go API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {

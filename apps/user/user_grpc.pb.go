@@ -8,6 +8,7 @@ package user
 
 import (
 	context "context"
+
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -82,7 +83,7 @@ func (c *serviceClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, o
 	return out, nil
 }
 
-// ServiceServer is the server API for Service service.
+// ServiceServer is the auther.go API for Service service.
 // All implementations must embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
