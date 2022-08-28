@@ -1,4 +1,4 @@
-pkg: gitee.com/dongdong-0421/keyauth
+pkg: github.com/dongdong-gogogo/keyauth
 name: keyauth
 description: 用户中心
 enable_keyauth: false
