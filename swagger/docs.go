@@ -1,7 +1,7 @@
 package swagger
 
 import (
-	"gitee.com/dongdong-0421/keyauth/version"
+	"github.com/dongdong-gogogo/keyauth/version"
 	"github.com/go-openapi/spec"
 )
 
