@@ -1,7 +1,7 @@
 package api
 
 import (
-	"gitee.com/dongdong-0421/keyauth/apps/user"
+	"github.com/dongdong-gogogo/keyauth/apps/user"
 	"github.com/emicklei/go-restful/v3"
 	"github.com/infraboard/mcube/http/response"
 )

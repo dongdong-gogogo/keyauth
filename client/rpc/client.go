@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
 	"github.com/infraboard/mcenter/client/rpc"
 	"github.com/infraboard/mcenter/client/rpc/auth"
 	"github.com/infraboard/mcenter/client/rpc/resolver"

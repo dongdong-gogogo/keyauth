@@ -17,7 +17,7 @@ import (
 	"github.com/infraboard/mcube/logger"
 	"github.com/infraboard/mcube/logger/zap"
 
-	"gitee.com/dongdong-0421/keyauth/conf"
+	"github.com/dongdong-gogogo/keyauth/conf"
 )
 
 // NewGRPCService todo

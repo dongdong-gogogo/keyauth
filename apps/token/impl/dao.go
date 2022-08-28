@@ -8,7 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
 )
 
 func (s *service) save(ctx context.Context, ins *token.Token) error {

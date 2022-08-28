@@ -14,11 +14,11 @@ import (
 	"github.com/infraboard/mcube/logger"
 	"github.com/infraboard/mcube/logger/zap"
 
-	"gitee.com/dongdong-0421/keyauth/conf"
-	"gitee.com/dongdong-0421/keyauth/protocol"
+	"github.com/dongdong-gogogo/keyauth/conf"
+	"github.com/dongdong-gogogo/keyauth/protocol"
 
 	// 注册所有服务
-	_ "gitee.com/dongdong-0421/keyauth/apps/all"
+	_ "github.com/dongdong-gogogo/keyauth/apps/all"
 )
 
 // startCmd represents the start command

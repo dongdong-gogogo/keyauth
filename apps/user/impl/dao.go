@@ -6,9 +6,9 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"gitee.com/dongdong-0421/keyauth/apps/user"
+	"github.com/dongdong-gogogo/keyauth/apps/user"
 
-	"gitee.com/dongdong-0421/keyauth/apps/book"
+	"github.com/dongdong-gogogo/keyauth/apps/book"
 	"github.com/infraboard/mcube/exception"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"

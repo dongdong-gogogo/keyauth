@@ -6,7 +6,7 @@ import (
 
 	"github.com/rs/xid"
 
-	"gitee.com/dongdong-0421/keyauth/utils"
+	"github.com/dongdong-gogogo/keyauth/utils"
 
 	"github.com/go-playground/validator/v10"
 

@@ -1,11 +1,10 @@
 package auth
 
 import (
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/utils"
 	"github.com/emicklei/go-restful/v3"
 	"github.com/infraboard/mcube/http/response"
-
-	"gitee.com/dongdong-0421/keyauth/utils"
 )
 
 // 通过 r.Filter()  加载中间件

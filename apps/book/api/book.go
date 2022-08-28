@@ -4,7 +4,7 @@ import (
 	"github.com/emicklei/go-restful/v3"
 	"github.com/infraboard/mcube/http/response"
 
-	"gitee.com/dongdong-0421/keyauth/apps/book"
+	"github.com/dongdong-gogogo/keyauth/apps/book"
 )
 
 func (h *handler) CreateBook(r *restful.Request, w *restful.Response) {

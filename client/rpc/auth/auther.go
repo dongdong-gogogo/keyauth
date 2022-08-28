@@ -3,7 +3,7 @@ package auth
 import (
 	"github.com/infraboard/mcube/logger"
 
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
 )
 
 func NewKeyauthAuther(auth token.ServiceClient) *KeyauthAuther {

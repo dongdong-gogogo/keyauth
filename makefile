@@ -1,7 +1,7 @@
 PROJECT_NAME := "keyauth"
 MAIN_FILE_PAHT := "main.go"
-PKG := "gitee.com/dongdong-0421/keyauth"
-IMAGE_PREFIX := "gitee.com/dongdong-0421/keyauth"
+PKG := "github.com/dongdong-gogogo/keyauth"
+IMAGE_PREFIX := "github.com/dongdong-gogogo/keyauth"
 
 MOD_DIR := $(shell go env GOPATH)/pkg/mod
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/ | grep -v redis)

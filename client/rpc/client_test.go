@@ -6,11 +6,11 @@ import (
 	"os"
 	"testing"
 
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
 
 	"github.com/stretchr/testify/assert"
 
-	"gitee.com/dongdong-0421/keyauth/client/rpc"
+	"github.com/dongdong-gogogo/keyauth/client/rpc"
 	mcenter "github.com/infraboard/mcenter/client/rpc"
 )
 

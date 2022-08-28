@@ -3,14 +3,14 @@ package impl
 import (
 	"context"
 
-	"gitee.com/dongdong-0421/keyauth/utils"
+	"github.com/dongdong-gogogo/keyauth/utils"
 
 	"github.com/infraboard/mcube/exception"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"gitee.com/dongdong-0421/keyauth/apps/user"
+	"github.com/dongdong-gogogo/keyauth/apps/user"
 )
 
 func (s *service) CreateUser(ctx context.Context, req *user.CreateUserRequest) (*user.User, error) {

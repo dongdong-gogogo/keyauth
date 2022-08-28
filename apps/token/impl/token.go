@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"time"
 
-	"gitee.com/dongdong-0421/keyauth/utils"
+	"github.com/dongdong-gogogo/keyauth/utils"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"gitee.com/dongdong-0421/keyauth/apps/token"
+	"github.com/dongdong-gogogo/keyauth/apps/token"
 	"github.com/infraboard/mcube/exception"
 
-	"gitee.com/dongdong-0421/keyauth/apps/user"
+	"github.com/dongdong-gogogo/keyauth/apps/user"
 )
 
 var (

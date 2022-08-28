@@ -1,8 +1,6 @@
 package main
 
-import (
-	"gitee.com/dongdong-0421/keyauth/cmd"
-)
+import "github.com/dongdong-gogogo/keyauth/cmd"
 
 func main() {
 	cmd.Execute()

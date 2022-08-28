@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"gitee.com/dongdong-0421/keyauth/version"
+	"github.com/dongdong-gogogo/keyauth/version"
 )
 
 var (

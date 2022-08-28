@@ -3,7 +3,7 @@ package utils_test
 import (
 	"testing"
 
-	"gitee.com/dongdong-0421/keyauth/utils"
+	"github.com/dongdong-gogogo/keyauth/utils"
 )
 
 func TestHash(t *testing.T) {

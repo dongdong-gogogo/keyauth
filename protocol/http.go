@@ -6,15 +6,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/dongdong-gogogo/keyauth/conf"
+	"github.com/dongdong-gogogo/keyauth/swagger"
 	restfulspec "github.com/emicklei/go-restful-openapi/v2"
 	"github.com/emicklei/go-restful/v3"
 	"github.com/infraboard/mcube/logger"
 	"github.com/infraboard/mcube/logger/zap"
 
 	"github.com/infraboard/mcube/app"
-
-	"gitee.com/dongdong-0421/keyauth/conf"
-	"gitee.com/dongdong-0421/keyauth/swagger"
 )
 
 // NewHTTPService 构建函数
